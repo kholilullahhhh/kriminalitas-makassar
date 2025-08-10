@@ -10,13 +10,13 @@
 
             <li class="menu-header">Page Data</li>
             @if(session('role') == 'admin')
-                <li class="{{ $menu == 'admin' ? 'active' : ''}}"><a class="nav-link" href="{{ route('user.index') }}"><i
+                <li class="{{ $menu == 'user' ? 'active' : ''}}"><a class="nav-link" href="{{ route('user.index') }}"><i
                             class="fas fa-users"></i><span>Administrator</span></a></li>
                 <li class="{{ $menu == 'uji' ? 'active' : ''}}"><a class="nav-link" href="{{ route('uji.index') }}"><i
                             class="fas fa-print"></i><span>Uji SAW Method</span></a></li>
-                <li class="{{ $menu == 'disabilitas' ? 'active' : ''}}"><a class="nav-link"
-                        href="{{ route('disabilitas.index') }}"><i class="fas fa-print"></i><span>Data
-                            Disabilitas</span></a></li>
+                <li class="{{ $menu == 'kriminalitas' ? 'active' : ''}}"><a class="nav-link"
+                        href="{{ route('kriminalitas.index') }}"><i class="fas fa-print"></i><span>Data
+                            Kriminalitas</span></a></li>
             @endif
 
             <li class="{{ $menu == 'warga' ? 'active' : ''}}"><a class="nav-link" href="{{ route('warga.index') }}"><i

@@ -4,21 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\tb_disabilitas;
+use App\Models\Datakriminal;
 
-class disabilitasController extends Controller
+class kriminalitasController extends Controller
 {
     //
     public function index()
     {
-        $data = tb_disabilitas::get();
-        return view('pages.disabilitas.index', ['menu' => 'disabilitas'], compact('data'));
+        $data = Datakriminal::get();
+        return view('pages.kriminalitas.index', ['menu' => 'kriminalitas'], compact('data'));
     }
     public function store(Request $request)
     {
         $req = $request->all();
-        tb_disabilitas::create($req);
-        return redirect()->route('disabilitas.index')->with('message', 'store');
+        Datakriminal::create($req);
+        return redirect()->route('kriminalitas.index')->with('message', 'store');
     }
 
     /**
@@ -26,7 +26,7 @@ class disabilitasController extends Controller
      */
     public function viewBaru()
     {
-        return view('pages.disabilitas.create', ['menu' => 'disabilitas']);
+        return view('pages.kriminalitas.create', ['menu' => 'kriminalitas']);
     }
 
     /**
@@ -34,8 +34,8 @@ class disabilitasController extends Controller
      */
     public function edit(string $id)
     {
-        $data = tb_disabilitas::find($id);
-        return view('pages.disabilitas.edit', ['menu' => 'disabilitas'], compact('data'));
+        $data = Datakriminal::find($id);
+        return view('pages.kriminalitas.edit', ['menu' => 'kriminalitas'], compact('data'));
     }
 
     /**
@@ -44,9 +44,9 @@ class disabilitasController extends Controller
     public function update(Request $request)
     {
         $req = $request->all();
-        $data = tb_disabilitas::find($req['id']);
+        $data = Datakriminal::find($req['id']);
         $data->update($req);
-        return redirect()->route('disabilitas.index')->with('message', 'update');
+        return redirect()->route('kriminalitas.index')->with('message', 'update');
     }
 
     /**
@@ -54,7 +54,7 @@ class disabilitasController extends Controller
      */
     public function hapus(string $id)
     {
-        $data = tb_disabilitas::find($id);
+        $data = Datakriminal::find($id);
         $data->delete();
         return response()->json($data);
     }

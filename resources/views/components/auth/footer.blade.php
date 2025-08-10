@@ -1,1 +1,1 @@
-<div class="simple-footer">Copyright &copy; Pabunobuno Jutsu 2025</div>
+<div class="simple-footer">Copyright &copy; Lulu Koding 2025</div>

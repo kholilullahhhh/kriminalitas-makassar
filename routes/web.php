@@ -70,15 +70,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Admin', 
             // /
         });
 
-        Route::prefix('disabilitas')->group(function () {
-            Route::get('/', 'disabilitasController@index')->name('disabilitas.index');
-            Route::get('/create', 'disabilitasController@create')->name('disabilitas.create');
-            Route::post('/store', 'disabilitasController@store')->name('disabilitas.store');
-            Route::get('/edit/{id}', 'disabilitasController@edit')->name('disabilitas.edit');
-            Route::put('/update', 'disabilitasController@update')->name('disabilitas.update');
-            Route::post('/hapus/{id}', 'disabilitasController@hapus')->name('disabilitas.hapus');
-            Route::get('/tambah', 'disabilitasController@viewBaru')->name('disabilitas.tambah');
-            // /
+        Route::prefix('kriminalitas')->group(function () {
+            Route::get('/', 'kriminalitasController@index')->name('kriminalitas.index');
+            Route::get('/create', 'kriminalitasController@create')->name('kriminalitas.create');
+            Route::post('/store', 'kriminalitasController@store')->name('kriminalitas.store');
+            Route::get('/edit/{id}', 'kriminalitasController@edit')->name('kriminalitas.edit');
+            Route::put('/update', 'kriminalitasController@update')->name('kriminalitas.update');
+            Route::post('/hapus/{id}', 'kriminalitasController@hapus')->name('kriminalitas.hapus');
+            Route::get('/tambah', 'kriminalitasController@viewBaru')->name('kriminalitas.tambah');
         });
 
         Route::prefix('obser')->group(function () {
