@@ -80,7 +80,7 @@ const deleteData = (id, tabel) => {
                     "X-CSRF-TOKEN": token,
                 },
                 type: "POST",
-                url: `/dashboard/${tabel}/hapus/${id}`,
+                url: `/admin/dashboard/${tabel}/hapus/${id}`,
                 success: function (response) {
                     console.log(response);
                     if (response) {

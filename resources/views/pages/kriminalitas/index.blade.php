@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Data Disabilitas'])
+@extends('layouts.app', ['title' => 'Data Kriminalitas'])
 
 @section('content')
     @push('styles')
@@ -9,53 +9,53 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Disabilitas</h1>
+                <h1>Data Kriminalitas</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Modules</a></div>
-                    <div class="breadcrumb-item">DataTables</div>
+                    <div class="breadcrumb-item">Data Kriminalitas</div>
                 </div>
             </div>
 
             <div class="section-body">
-
-
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
-                                <h4>Data Disabilitas</h4>
-                                <a href="{{ route('disabilitas.tambah') }}" class="btn btn-success justi mt-4 p-2">+ Tambah Disabilitas</a>
+                                <h4>Data Kriminalitas</h4>
+                                <a href="{{ route('kriminalitas.tambah') }}" class="btn btn-success mt-4 p-2">+ Tambah
+                                    Data</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-striped" id="table-1">
                                         <thead>
                                             <tr>
-                                                <th class="text-center">
-                                                    Nomor
-                                                </th>
-                                                <th>Kode</th>
-                                                <th>Kriteria</th>
-                                                <th>Keterangan</th>
-                                                <th>Poin</th>
+                                                <th class="text-center">No</th>
+                                                <th>Kecamatan</th>
+                                                <th>Tahun</th>
+                                                <th>Narkotika</th>
+                                                <th>Pencurian</th>
+                                                <th>Penipuan</th>
+                                                <th>Pembunuhan</th>
+                                                <th>Jumlah Penduduk</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($data as $i => $item)
                                                 <tr>
-                                                    <td class="text-center">
-                                                        {{ ++$i }}
-                                                    </td>
-                                                    <td>{{ $item->kode }}</td>
-                                                    <td>{{ $item->kriteria }}</td>
-                                                    <td>{{ $item->ket }}</td>
-                                                    <td>{{ $item->poin }}</td>
+                                                    <td class="text-center">{{ ++$i }}</td>
+                                                    <td>{{ $item->kecamatan->nama }}</td>
+                                                    <td>{{ $item->tahun }}</td>
+                                                    <td>{{ $item->narkotika }}</td>
+                                                    <td>{{ $item->pencurian }}</td>
+                                                    <td>{{ $item->penipuan }}</td>
+                                                    <td>{{ $item->pembunuhan }}</td>
+                                                    <td>{{ $item->jumlah_penduduk }}</td>
                                                     <td>
-                                                        <a href="{{ route('disabilitas.edit', $item->id) }}"
+                                                        <a href="{{ route('kriminalitas.edit', $item->id) }}"
                                                             class="btn btn-warning">Edit</a>
-                                                        <button onclick="deleteData({{ $item->id }}, 'disabilitas')"
+                                                        <button onclick="deleteData({{ $item->id }}, 'kriminalitas')"
                                                             class="btn btn-danger">Hapus</button>
                                                     </td>
                                                 </tr>
@@ -67,7 +67,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
     </div>

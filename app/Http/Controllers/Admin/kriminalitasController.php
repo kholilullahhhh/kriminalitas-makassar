@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Kecamatan;
 use Illuminate\Http\Request;
 use App\Models\Datakriminal;
 
@@ -26,7 +27,8 @@ class kriminalitasController extends Controller
      */
     public function viewBaru()
     {
-        return view('pages.kriminalitas.create', ['menu' => 'kriminalitas']);
+        $kecamatans = Kecamatan::get();
+        return view('pages.kriminalitas.create', ['menu' => 'kriminalitas' ], compact('kecamatans'));
     }
 
     /**
@@ -34,8 +36,9 @@ class kriminalitasController extends Controller
      */
     public function edit(string $id)
     {
+        $kecamatans = Kecamatan::get();
         $data = Datakriminal::find($id);
-        return view('pages.kriminalitas.edit', ['menu' => 'kriminalitas'], compact('data'));
+        return view('pages.kriminalitas.edit', ['menu' => 'kriminalitas'], compact('data', 'kecamatans'));
     }
 
     /**
