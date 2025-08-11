@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Kecamatan;
 
-class kecamatanSeeder extends Seeder
+class KecamatanSeeder extends Seeder
 {
     /**
      * Run the database seeds.

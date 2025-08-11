@@ -15,13 +15,13 @@ use Illuminate\Support\Facades\Session;
 */
 
 //landing page
-Route::get('/', 'App\Http\Controllers\LandingController@index')->name('landing.index');
+// Route::get('/', 'App\Http\Controllers\LandingController@index')->name('landing.index');
 
 
 
+Route::get('/', 'App\Http\Controllers\Auth\AuthController@login')->name('login');
 //auth
 Route::group(['prefix' => 'auth', 'namespace' => 'App\Http\Controllers\Auth'], function () {
-    Route::get('/login', 'AuthController@login')->name('login');
     Route::post('/login-actiion', 'AuthController@login_action')->name('login_action');
     Route::get('/regis', 'AuthController@regis')->name('regis');
     Route::post('/regisStore', 'AuthController@regisStore')->name('regisStore');

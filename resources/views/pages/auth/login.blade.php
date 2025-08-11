@@ -48,7 +48,7 @@
     </div>
     <div class="mt-5 text-muted text-center">
         <!-- Belum punya akun? <a href="{{ route('regis') }}">Akun Baru</a><br> -->
-        Kembali ke <a href="{{ route('landing.index') }}">Beranda</a>
+        Kembali ke <a href="#">Beranda</a>
     </div>
 
     @push('scripts')

@@ -47,18 +47,30 @@
                                                 <tr>
                                                     <td class="text-center">{{ ++$i }}</td>
                                                     <td>{{ $item->kecamatan->nama }}</td>
-                                                    <td>{{ $item->tahun }}</td>
+                                                    <td>
+                                                        <span class="badge badge-primary badge-year">
+                                                            {{ $item->tahun }}
+                                                        </span>
+                                                    </td>
                                                     <td>{{ $item->pencurian }}</td>
                                                     <td>{{ $item->penipuan }}</td>
                                                     <td>{{ $item->curanmor }}</td>
                                                     <td>{{ $item->kdrt }}</td>
                                                     <td>{{ $item->tipu_online }}</td>
                                                     <td>{{ $item->jumlah_penduduk }}</td>
-                                                    <td>
-                                                        <a href="{{ route('kriminalitas.edit', $item->id) }}"
-                                                            class="btn btn-warning">Edit</a>
-                                                        <button onclick="deleteData({{ $item->id }}, 'kriminalitas')"
-                                                            class="btn btn-danger">Hapus</button>
+                                                    <td class="text-center">
+                                                        <div class="action-buttons">
+                                                            <a href="{{ route('kriminalitas.edit', $item->id) }}"
+                                                                class="btn btn-warning btn-sm" data-toggle="tooltip"
+                                                                title="Edit"> Edit
+                                                                <i class="fas fa-edit"></i>
+                                                            </a>
+                                                            <button onclick="deleteData({{ $item->id }}, 'kriminalitas')"
+                                                                class="btn btn-danger btn-sm" data-toggle="tooltip"
+                                                                title="Hapus"> Hapus
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             @endforeach
