@@ -11,10 +11,11 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('kecamatan_id')->constrained()->onDelete('cascade');
             $table->year('tahun');
-            $table->integer('narkotika')->default(0);
+            $table->integer('tipu_online')->default(0);
             $table->integer('pencurian')->default(0);
+            $table->integer('curanmor')->default(0);
             $table->integer('penipuan')->default(0);
-            $table->integer('pembunuhan')->default(0);
+            $table->integer('kdrt')->default(0);
             $table->integer('jumlah_penduduk');
             $table->timestamps();
         });

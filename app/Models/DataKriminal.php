@@ -12,10 +12,11 @@ class Datakriminal extends Model
     protected $fillable = [
         'kecamatan_id',
         'tahun',
-        'narkotika',
+        'tipu_online',
         'pencurian',
         'penipuan',
-        'pembunuhan',
+        'curanmor',
+        'kdrt',
         'jumlah_penduduk'
     ];
 

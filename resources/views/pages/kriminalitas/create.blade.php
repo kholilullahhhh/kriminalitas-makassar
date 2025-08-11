@@ -4,6 +4,24 @@
     @push('styles')
         <link rel="stylesheet" href="{{ asset('library/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
         <link rel="stylesheet" href="{{ asset('library/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
+        <style>
+            .form-section {
+                margin-bottom: 2rem;
+                padding-bottom: 1.5rem;
+                border-bottom: 1px solid #eee;
+            }
+
+            .form-section-title {
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: #34395e;
+                margin-bottom: 1.5rem;
+            }
+
+            .form-group label {
+                font-weight: 500;
+            }
+        </style>
     @endpush
 
     <div class="main-content">
@@ -22,72 +40,117 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Form Tambah Data Kriminalitas</h4>
+                                <h4><i class="fas fa-plus-circle"></i> Form Tambah Data Kriminalitas</h4>
                             </div>
 
                             <div class="card-body">
                                 <form action="{{ route('kriminalitas.store') }}" method="post">
                                     @csrf
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Kecamatan</label>
-                                                <select name="kecamatan_id" class="form-control" required>
-                                                    <option value="">Pilih Kecamatan</option>
-                                                    @foreach($kecamatans as $kecamatan)
-                                                        <option value="{{ $kecamatan->id }}">{{ $kecamatan->nama }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
+
+                                    <!-- Section 1: Basic Information -->
+                                    <div class="form-section">
+                                        <div class="form-section-title">
+                                            <i class="fas fa-info-circle"></i> Informasi Dasar
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Tahun</label>
-                                                <input type="number" name="tahun" class="form-control" required min="2000" max="{{ date('Y') + 1 }}">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="kecamatan_id">Kecamatan</label>
+                                                    <select name="kecamatan_id" id="kecamatan_id" class="form-control "
+                                                        required>
+                                                        <option value="">Pilih Kecamatan</option>
+                                                        @foreach($kecamatans as $kecamatan)
+                                                            <option value="{{ $kecamatan->id }}">{{ $kecamatan->nama }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Kasus Narkotika</label>
-                                                <input type="number" name="narkotika" class="form-control" required min="0">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Kasus Pencurian</label>
-                                                <input type="number" name="pencurian" class="form-control" required min="0">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Kasus Penipuan</label>
-                                                <input type="number" name="penipuan" class="form-control" required min="0">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Kasus Pembunuhan</label>
-                                                <input type="number" name="pembunuhan" class="form-control" required min="0">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="tahun">Tahun</label>
+                                                    <input type="number" name="tahun" id="tahun" class="form-control"
+                                                        required min="2000" max="{{ date('Y') + 1 }}"
+                                                        placeholder="Masukkan tahun (2000-{{ date('Y') + 1 }})">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Jumlah Penduduk</label>
-                                                <input type="number" name="jumlah_penduduk" class="form-control" required min="0">
+
+                                    <!-- Section 2: Crime Cases -->
+                                    <div class="form-section">
+                                        <div class="form-section-title">
+                                            <i class="fas fa-exclamation-triangle"></i> Data Kasus Kriminal
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="tipu_online">Penipuan Online</label>
+                                                    <input type="number" name="tipu_online" id="tipu_online"
+                                                        class="form-control" required min="0" placeholder="Jumlah kasus">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="pencurian">Pencurian</label>
+                                                    <input type="number" name="pencurian" id="pencurian"
+                                                        class="form-control" required min="0" placeholder="Jumlah kasus">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="penipuan">Penipuan</label>
+                                                    <input type="number" name="penipuan" id="penipuan" class="form-control"
+                                                        required min="0" placeholder="Jumlah kasus">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="curanmor">Pencurian Motor</label>
+                                                    <input type="number" name="curanmor" id="curanmor" class="form-control"
+                                                        required min="0" placeholder="Jumlah kasus">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="kdrt">KDRT</label>
+                                                    <input type="number" name="kdrt" id="kdrt" class="form-control" required
+                                                        min="0" placeholder="Jumlah kasus">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    <div class="row">
+
+                                    <!-- Section 3: Population -->
+                                    <div class="form-section">
+                                        <div class="form-section-title">
+                                            <i class="fas fa-users"></i> Data Demografi
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="jumlah_penduduk">Jumlah Penduduk</label>
+                                                    <input type="number" name="jumlah_penduduk" id="jumlah_penduduk"
+                                                        class="form-control" required min="0"
+                                                        placeholder="Total penduduk di kecamatan">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Form Actions -->
+                                    <div class="row mt-4">
                                         <div class="col-md-12 text-right">
-                                            <button type="submit" class="btn btn-primary">Simpan Data</button>
-                                            <a href="{{ route('kriminalitas.index') }}" class="btn btn-secondary">Kembali</a>
+                                            <button type="reset" class="btn btn-secondary mr-2">
+                                                <i class="fas fa-undo"></i> Reset
+                                            </button>
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="fas fa-save"></i> Simpan Data
+                                            </button>
+                                            <a href="{{ route('kriminalitas.index') }}" class="btn btn-light ml-2">
+                                                <i class="fas fa-arrow-left"></i> Kembali
+                                            </a>
                                         </div>
                                     </div>
                                 </form>
@@ -103,6 +166,7 @@
         <script src="{{ asset('library/datatables/media/js/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('library/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
         <script src="{{ asset('library/datatables.net-select-bs4/js/select.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('library/select2/dist/js/select2.full.min.js') }}"></script>
         <script src="{{ asset('js/page/modules-datatables.js') }}"></script>
     @endpush
 @endsection

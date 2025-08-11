@@ -33,10 +33,11 @@
                                                 <th class="text-center">No</th>
                                                 <th>Kecamatan</th>
                                                 <th>Tahun</th>
-                                                <th>Narkotika</th>
                                                 <th>Pencurian</th>
                                                 <th>Penipuan</th>
-                                                <th>Pembunuhan</th>
+                                                <th>Curanmor</th>
+                                                <th>KDRT</th>
+                                                <th>Penipuan Online</th>
                                                 <th>Jumlah Penduduk</th>
                                                 <th>Action</th>
                                             </tr>
@@ -47,10 +48,11 @@
                                                     <td class="text-center">{{ ++$i }}</td>
                                                     <td>{{ $item->kecamatan->nama }}</td>
                                                     <td>{{ $item->tahun }}</td>
-                                                    <td>{{ $item->narkotika }}</td>
                                                     <td>{{ $item->pencurian }}</td>
                                                     <td>{{ $item->penipuan }}</td>
-                                                    <td>{{ $item->pembunuhan }}</td>
+                                                    <td>{{ $item->curanmor }}</td>
+                                                    <td>{{ $item->kdrt }}</td>
+                                                    <td>{{ $item->tipu_online }}</td>
                                                     <td>{{ $item->jumlah_penduduk }}</td>
                                                     <td>
                                                         <a href="{{ route('kriminalitas.edit', $item->id) }}"
