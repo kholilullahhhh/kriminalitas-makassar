@@ -10,19 +10,20 @@
 
             <li class="menu-header">Page Data</li>
             @if(session('role') == 'admin')
+            
                 <li class="{{ $menu == 'user' ? 'active' : ''}}"><a class="nav-link" href="{{ route('user.index') }}"><i
-                            class="fas fa-users"></i><span>Administrator</span></a></li>
+                            class="fas fa-users"></i><span>Administrasi</span></a></li>
                 <li class="{{ $menu == 'uji' ? 'active' : ''}}"><a class="nav-link" href="{{ route('uji.index') }}"><i
-                            class="fas fa-print"></i><span>Uji SAW Method</span></a></li>
+                            class="fas fa-print"></i><span>Uji KMeans Method</span></a></li>
                 <li class="{{ $menu == 'kriminalitas' ? 'active' : ''}}"><a class="nav-link"
                         href="{{ route('kriminalitas.index') }}"><i class="fas fa-print"></i><span>Data
                             Kriminalitas</span></a></li>
             @endif
 
-            <li class="{{ $menu == 'warga' ? 'active' : ''}}"><a class="nav-link" href="{{ route('warga.index') }}"><i
-                        class="fas fa-print"></i><span>Data Warga</span></a></li>
-            <li class="{{ $menu == 'kodepos' ? 'active' : ''}}"><a class="nav-link"
-                    href="{{ route('kodepos.index') }}"><i class="fas fa-print"></i><span>Data Daerah Gowa</span></a>
+            <!-- <li class="{{ $menu == 'warga' ? 'active' : ''}}"><a class="nav-link" href="{{ route('warga.index') }}"><i
+                        class="fas fa-print"></i><span>Data Warga</span></a></li> -->
+            <li class="{{ $menu == 'kecamatan' ? 'active' : ''}}"><a class="nav-link"
+                    href="{{ route('kecamatan.index') }}"><i class="fas fa-print"></i><span>Data Daerah Makassar</span></a>
             </li>
         </ul>
     </aside>

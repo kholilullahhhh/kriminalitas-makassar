@@ -91,12 +91,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Admin', 
             // /
         });
 
-        Route::prefix('kodepos')->group(function () {
-            Route::get('/', 'kodeposController@index')->name('kodepos.index');
+        Route::prefix('kecamatan')->group(function () {
+            Route::get('/', 'KecamatanController@index')->name('kecamatan.index');
         });
         Route::prefix('uji')->group(function () {
-            Route::get('/', 'sawMethodController@index')->name('uji.index');
-            Route::get('/create', 'sawMethodController@create')->name('uji.create');
+            Route::get('/', 'KmeansMethodController@index')->name('uji.index');
+            Route::get('/create', 'KmeansMethodController@create')->name('uji.create');
             // /
         });
         // Blank

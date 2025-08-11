@@ -11,6 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('data_kriminal_id')->constrained()->onDelete('cascade');
             $table->integer('cluster'); // 0,1,2
+            $table->decimal('nilai', 10, 4)->nullable();
             $table->enum('kategori', ['Tinggi', 'Sedang', 'Rendah']);
             $table->timestamps();
         });

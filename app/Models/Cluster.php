@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cluster extends Model
 {
     use HasFactory;
-    protected $fillable = ['data_kriminal_id', 'cluster', 'kategori'];
+    protected $fillable = ['data_kriminal_id', 'cluster', 'nilai', 'kategori'];
 
     public function dataKriminal()
     {
