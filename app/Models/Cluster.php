@@ -12,7 +12,7 @@ class Cluster extends Model
 
     public function dataKriminal()
     {
-        return $this->belongsTo(DataKriminal::class);
+        return $this->belongsTo(Datakriminal::class, 'data_kriminal_id');
     }
 
 }

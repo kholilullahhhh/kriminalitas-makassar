@@ -30,7 +30,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1><i class="bi bi-map-fill text-primary mr-2"></i> Data Kecamatan Gowa</h1>
+                <h1><i class="bi bi-map-fill text-primary mr-2"></i> Data Kecamatan Makassar</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="{{ route('dashboard') }}">Dashboard</a></div>
                     <div class="breadcrumb-item">Wilayah</div>
